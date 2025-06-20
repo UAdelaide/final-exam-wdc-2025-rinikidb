@@ -74,7 +74,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: 'Couldn't retrieve walk requests' });
+    res.status(500).json({ error: 'Could not retrieve walk requests' });
   }
 });
 
