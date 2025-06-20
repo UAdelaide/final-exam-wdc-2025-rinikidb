@@ -42,9 +42,9 @@ async function SampleData() {
     `);
 
     connection.release();
-    // console.log("Sample data inserted.");
+    // console.log("Sample has been data inserted.");
   } catch (err) {
-    // console.error("Error inserting sample data:", err.message);
+    // console.error("Error in inserting sample data:", err.message);
   }
 }
 
@@ -74,7 +74,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to retrieve walk requests' });
+    res.status(500).json({ error: 'Couldn't retrieve walk requests' });
   }
 });
 
