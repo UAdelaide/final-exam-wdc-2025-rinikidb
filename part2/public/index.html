@@ -10,21 +10,21 @@
 <body class="bg-light">
 
   <div id="app" class="container py-5" style="max-width: 500px;">
-  <h1 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h1>
-  <p class="lead">Connect with trusted walkers for your beloved dog!</p>
+    <h1 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h1>
+    <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
-  <div class="mb-3">
-    <label class="form-label">Username</label>
-    <input type="text" class="form-control bg-warning-subtle" v-model="username" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Password</label>
-    <input type="password" class="form-control bg-warning-subtle" v-model="password" required>
-  </div>
-  <button ty class="btn btn-primary" @click="login">Log In</button>
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control bg-warning-subtle" v-model="username" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control bg-warning-subtle" v-model="password" required>
+    </div>
+    <button type="button" class="btn btn-primary" @click="login">Log In</button>
 
-  <div v-if="error" class="alert alert-danger mt-3">{{ error }}</div>
-</div>
+    <div v-if="error" class="alert alert-danger mt-3">{{ error }}</div>
+  </div>
 
 
   <script>
