@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
   // console.log("Login attempt:", username, password);
 
   /* in the try block I am now using username as the way to determine the user and not email
-*/
+  which was the case previously, since now the user */
   try {
     const [rows] = await db.query(`
       SELECT user_id, role FROM Users
