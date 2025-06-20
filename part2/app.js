@@ -4,9 +4,6 @@ require('dotenv').config();
 
 const app = express();
 
-// q13
-const session = require('express-session');
-
 
 // Middleware
 app.use(express.json());
