@@ -8,10 +8,8 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body class="bg-light">
-  <header>
-    <!-- Somewhere in the header or top of the dashboard -->
-    <button type=button id="logoutBtn" class="btn btn-danger">Logout</button>
-
+  <div class="d-flex justify-content-end p-3">
+    <button id="logoutBtn" class="btn btn-danger">Logout</button>
     <script>
       document.getElementById('logoutBtn').addEventListener('click', async () => {
         try {
@@ -29,8 +27,7 @@
         }
       });
     </script>
-
-  </header>
+  </div>
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-success">Walker Dashboard</h1>
 
