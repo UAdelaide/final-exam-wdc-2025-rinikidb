@@ -10,25 +10,25 @@
 <body class="bg-light">
   <header>
     <!-- Somewhere in the header or top of the dashboard -->
-<button id="logoutBtn" class="btn btn-danger">Logout</button>
+    <button id="logoutBtn" class="btn btn-danger">Logout</button>
 
-<script>
-  document.getElementById('logoutBtn').addEventListener('click', async () => {
-    try {
-      const res = await fetch('/api/users/logout', {
-        method: 'POST',
-        credentials: 'include'
+    <script>
+      document.getElementById('logoutBtn').addEventListener('click', async () => {
+        try {
+          const res = await fetch('/api/users/logout', {
+            method: 'POST',
+            credentials: 'include'
+          });
+          if (res.ok) {
+            window.location.href = 'index.html'; // redirect to login page
+          } else {
+            alert('Logout failed');
+          }
+        } catch (err) {
+          console.error('Error logging out:', err);
+        }
       });
-      if (res.ok) {
-        window.location.href = 'index.html'; // redirect to login page
-      } else {
-        alert('Logout failed');
-      }
-    } catch (err) {
-      console.error('Error logging out:', err);
-    }
-  });
-</script>
+    </script>
 
   </header>
   <div id="app" class="container py-4">
