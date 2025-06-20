@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog of the Day (Bad UX Edition)</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body {
+      font-family: Papyrus, Comic Sans MS;
+      background: radial-gradient(circle, lime, yellow, cyan);
+      animation: spin 5s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .button {
+      margin: 100px;
+      padding: 50px;
+      font-size: 30px;
+      background-color: fuchsia;
+      border: 5px dashed black;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 90vw;
+      border: 10px dotted red;
+    }
+
+    .chaotic-layout {
+      position: absolute;
+      top: 45vh;
+      left: 45vw;
+      transform: rotate(20deg);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 tabindex="-1">WELCOME TO DOG OF THE DAY (but not for screen readers)</h1>
+
+    <button class="button chaotic-layout" @click="getDog">🐶 FETCH DOG (Maybe)</button>
+
+    <div v-if="dogImage">
+      <h2>🐾 This is a totally random dog</h2>
+      <img :src="dogImage" alt="cute dog probably">
+    </div>
+
+    <p style="font-size: 8px; color: #fff;">Click if you can find it</p>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          dogImage: null
+        };
+      },
+      methods: {
+        async getDog() {
+          try {
+            const res = await fetch('https://dog.ceo/api/breeds/image/random');
+            const data = await res.json();
+            this.dogImage = data.message;
+          } catch (err) {
+            console.error('Could not fetch dog', err);
+          }
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
