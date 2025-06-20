@@ -11,11 +11,13 @@ async function insertSampleData() {
 
     // Insert users
     await conn.query(`
-      INSERT IGNORE INTO Users (username, email, password_hash, role)
-      VALUES
+      INSERT INTO Users (username, email, password_hash, role)
+    VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
         ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-        ('carol123', 'carol@example.com', 'hashed789', 'owner')
+        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+        ('rinikidas', 'riniki@example.com', 'hashed888', 'walker'),
+        ('karisamahroukh', 'karisa@example.com', 'hashed555', 'owner');
     `);
 
     // Insert dogs
