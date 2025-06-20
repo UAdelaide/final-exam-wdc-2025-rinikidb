@@ -58,7 +58,7 @@ app.get('/api/dogs', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to retrieve dogs' });
+    res.status(500).json({ error: 'Could not retrieve dogs' });
   }
 });
 
@@ -99,7 +99,7 @@ app.get('/api/walkers/summary', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to retrieve walker summary' });
+    res.status(500).json({ error: 'Could not retrieve walker summary' });
   }
 });
 
