@@ -67,10 +67,10 @@ app.get('/api/dogs', async (req, res) => {
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
     const [rows] = await pool.query(`
-      SELECT WalkRequests.request_id, d.name AS dog_name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, u.username AS owner_username
+      SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, u.username AS owner_username
       FROM WalkRequests
       JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
-      JOIN Users u ON d.owner_id = u.user_id
+      JOIN Users ON Dogs.owner_id = Users.user_id
       WHERE wr.status = 'open'
     `);
     res.json(rows);
