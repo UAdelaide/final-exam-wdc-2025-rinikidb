@@ -79,25 +79,25 @@
     </head>
     <body>
         <div id="app">
-        <h1>🐾 DOG OF THE DAY 🐾</h1>
+            <h1>🐾 DOG OF THE DAY 🐾</h1>
 
-        <button type="button" class="button" @click="getDog">
-            SUMMON THE DOG RAAHHHHHH
-        </button>
+            <button type="button" class="button" @click="getDog">
+                SUMMON THE DOG RAAHHHHHH
+            </button>
 
-        <div v-if="dogImage" class="dog-box">
-            <img :src="dogImage" :alt="'A glorious pupper'" />
-            <div class="dog-details">
-            <p><strong>Name:</strong> Sir Wigglebottom</p>
-            <p><strong>Breed:</strong> Probably part dragon</p>
-            <p><strong>Age:</strong> 3.14159 years</p>
-            <p><strong>Fun Fact:</strong> Once chased his own tail into another dimension 🌀</p>
+            <div v-if="dogImage" class="dog-box">
+                <img :src="dogImage" :alt="'A glorious pupper'" />
+                <div class="dog-details">
+                <p><strong>Name:</strong> Sir Wigglebottom</p>
+                <p><strong>Breed:</strong> Probably part dragon</p>
+                <p><strong>Age:</strong> 3.14159 years</p>
+                <p><strong>Fun Fact:</strong> Once chased his own tail into another dimension 🌀</p>
+                </div>
             </div>
-        </div>
 
-        <div class="footer">
-            <p>Powered by the chaos of the <a href="https://dog.ceo/dog-api/" target="_blank">Dog API</a> 🐕‍🦺</p>
-        </div>
+            <div class="footer">
+                <p>Powered by the chaos of the <a href="https://dog.ceo/dog-api/" target="_blank">Dog API</a> 🐕‍🦺</p>
+            </div>
         </div>
 
         <script>
