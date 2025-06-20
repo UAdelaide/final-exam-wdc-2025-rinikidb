@@ -42,11 +42,11 @@
   <div id="app">
     <h1 tabindex="-1">WELCOME TO DOG OF THE DAY (but not for screen readers)</h1>
 
-    <button class="button chaotic-layout" @click="getDog">🐶 FETCH DOG (Maybe)</button>
+    <button type="button" class="button chaotic-layout" @click="getDog">FETCH DOG (Maybe)</button>
 
     <div v-if="dogImage">
       <h2>🐾 This is a totally random dog</h2>
-      <img :src="dogImage" alt="cute dog probably">
+      <img src="dogImage" alt="cute dog probably">
     </div>
 
     <p style="font-size: 8px; color: #fff;">Click if you can find it</p>
