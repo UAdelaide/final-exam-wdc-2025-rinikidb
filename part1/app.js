@@ -31,7 +31,7 @@ async function SampleData() {
     `);
 
     // walk requests
-    await connect.query(`
+    await connection.query(`
         INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES
             ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
@@ -41,7 +41,7 @@ async function SampleData() {
             ((SELECT dog_id FROM Dogs WHERE name = 'Roxy'), '2025-06-12 14:00:00', 40, 'Glenelg Beach', 'cancelled');
     `);
 
-    conn.release();
+    connection.release();
     // console.log("Sample data inserted.");
   } catch (err) {
     // console.error("Error inserting sample data:", err.message);
