@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dog of the Day - Rniki's Version (ONLY CHAOS)</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <style>
+    <meta charset="UTF-8">
+    <title>Dog of the Day - Rniki's Version (ONLY CHAOS)</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
     body {
-      font-family: Comic Sans MS, cursive, sans-serif;
-      background: linear-gradient(45deg, yellow, hotpink, cyan);
-      background-size: 400% 400%;
-      animation: spinBG 10s linear infinite;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
+        font-family: Comic Sans MS, cursive, sans-serif;
+        background: linear-gradient(45deg, yellow, hotpink, cyan);
+        background-size: 400% 400%;
+        animation: spinBG 10s linear infinite;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
     }
 
     @keyframes spinBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     h1 {
-      text-align: center;
-      font-size: 3rem;
-      color: purple;
-      text-shadow: 2px 2px yellow;
-      margin-top: 2rem;
+        text-align: center;
+        font-size: 3rem;
+        color: purple;
+        text-shadow: 2px 2px yellow;
+        margin-top: 2rem;
     }
 
     .button {
-      display: block;
-      margin: 3rem auto;
-      padding: 2rem 4rem;
-      font-size: 1.5rem;
-      background: repeating-linear-gradient(45deg, lime, lime 10px, orange 10px, orange 20px);
-      border: 5px dashed red;
-      cursor: grab;
-      transform: rotate(-5deg);
-      box-shadow: 5px 5px 20px black;
+        display: block;
+        margin: 3rem auto;
+        padding: 2rem 4rem;
+        font-size: 1.5rem;
+        background: repeating-linear-gradient(45deg, lime, lime 10px, orange 10px, orange 20px);
+        border: 5px dashed red;
+        cursor: grab;
+        transform: rotate(-5deg);
+        box-shadow: 5px 5px 20px black;
     }
 
     .dog-box {
-      text-align: center;
-      animation: pulse 2s infinite alternate;
+        text-align: center;
+        animation: pulse 2s infinite alternate;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05) rotate(1deg); }
+        0% { transform: scale(1); }
+        100% { transform: scale(1.05) rotate(1deg); }
     }
 
     img {
-      max-width: 90vw;
-      border: 15px groove magenta;
-      margin-top: 1rem;
-      box-shadow: 0 0 20px black;
+        max-width: 90vw;
+        border: 15px groove magenta;
+        margin-top: 1rem;
+        box-shadow: 0 0 20px black;
     }
 
     .dog-details {
-      font-size: 1.2rem;
-      color: navy;
-      background-color: rgba(255, 255, 255, 0.7);
-      margin: 1rem auto;
-      display: inline-block;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 3px 3px 10px gray;
+        font-size: 1.2rem;
+        color: navy;
+        background-color: rgba(255, 255, 255, 0.7);
+        margin: 1rem auto;
+        display: inline-block;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 3px 3px 10px gray;
     }
 
     .footer {
-      font-size: 0.9rem;
-      color: #333;
-      text-align: center;
-      margin-top: 3rem;
+        font-size: 0.9rem;
+        color: #333;
+        text-align: center;
+        margin-top: 3rem;
     }
-  </style>
-</head>
-<body>
-  <div id="app">
+    </style>
+    </head>
+    <body>
+    <div id="app">
     <h1>🐾 DOG OF THE DAY 🐾</h1>
 
     <button type="button" class="button" @click="getDog">
@@ -86,40 +86,40 @@
     </button>
 
     <div v-if="dogImage" class="dog-box">
-      <img :src="dogImage" :alt="'A glorious pupper'" />
-      <div class="dog-details">
+        <img :src="dogImage" :alt="'A glorious pupper'" />
+        <div class="dog-details">
         <p><strong>Name:</strong> Sir Wigglebottom</p>
         <p><strong>Breed:</strong> Probably part dragon</p>
         <p><strong>Age:</strong> 3.14159 years</p>
         <p><strong>Fun Fact:</strong> Once chased his own tail into another dimension 🌀</p>
-      </div>
+        </div>
     </div>
 
     <div class="footer">
-      <p>Powered by the chaos of the <a href="https://dog.ceo/dog-api/" target="_blank">Dog API</a> 🐕‍🦺</p>
+        <p>Powered by the chaos of the <a href="https://dog.ceo/dog-api/" target="_blank">Dog API</a> 🐕‍🦺</p>
     </div>
-  </div>
+    </div>
 
-  <script>
+    <script>
     const { createApp } = Vue;
     createApp({
-      data() {
+        data() {
         return {
-          dogImage: null
+            dogImage: null
         };
-      },
-      methods: {
+        },
+        methods: {
         async getDog() {
-          try {
+            try {
             const res = await fetch('https://dog.ceo/api/breeds/image/random');
             const data = await res.json();
             this.dogImage = data.message;
-          } catch (err) {
+            } catch (err) {
             console.error('The doggos are on strike today 🐾', err);
-          }
+            }
         }
-      }
+        }
     }).mount('#app');
-  </script>
-</body>
-</html>
+    </script>
+    </body>
+    </html>
