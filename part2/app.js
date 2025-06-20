@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const app = express();
 
+// q13
 const session = require('express-session');
 
 
@@ -18,6 +19,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
+// q13
 app.use(session({
   secret: 'your-secret-key',
   resave: false,
