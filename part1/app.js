@@ -4,7 +4,7 @@ const pool = require('./db');
 const app = express();
 const PORT = 8080;
 
-async function insertSampleData() {
+async function SampleData() {
   try {
     const conn = await pool.getConnection();
 
@@ -105,6 +105,6 @@ app.get('/api/walkers/summary', async (req, res) => {
 
 // Startup
 app.listen(PORT, async () => {
-  await insertSampleData();
-  //console.log(`Server is running on http://localhost:${PORT}`);
+  await SampleData();
+  // console.log(`Server is running on http://localhost:${PORT}`);
 });
