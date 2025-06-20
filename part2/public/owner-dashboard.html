@@ -8,9 +8,12 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body class="bg-light">
+  <div class="d-flex justify-content-end p-3">
+    <button id="logoutBtn" class="btn btn-danger">Logout</button>
+  </div>
   <header>
     <!-- Somewhere in the header or top of the dashboard -->
-    <button type=button id="logoutBtn" class="btn btn-danger">Logout</button>
+    <button id="logoutBtn" class="btn btn-danger">Logout</button>
 
     <script>
       document.getElementById('logoutBtn').addEventListener('click', async () => {
