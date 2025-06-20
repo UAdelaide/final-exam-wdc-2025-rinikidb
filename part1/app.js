@@ -43,9 +43,9 @@ async function insertSampleData() {
     `);
 
     conn.release();
-    console.log("Sample data inserted.");
+    // console.log("Sample data inserted.");
   } catch (err) {
-    console.error("Error inserting sample data:", err.message);
+    // console.error("Error inserting sample data:", err.message);
   }
 }
 
