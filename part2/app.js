@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-// Session setup (must go BEFORE routes)
+// Session setup (before routes)
 app.use(session({
   secret: 'walk-the-dog-secret', // 🔐 use .env for production
   resave: false,
