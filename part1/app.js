@@ -62,7 +62,7 @@ app.get('/api/dogs', async (req, res) => {
   }
 });
 
-// Route: /api/walkrequests/open
+// /api/walkrequests/open
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
     const [rows] = await pool.query(`
@@ -78,7 +78,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
   }
 });
 
-// Route: /api/walkers/summary
+// /api/walkers/summary
 app.get('/api/walkers/summary', async (req, res) => {
   try {
     const [rows] = await pool.query(`
@@ -106,5 +106,5 @@ app.get('/api/walkers/summary', async (req, res) => {
 // Startup
 app.listen(PORT, async () => {
   await insertSampleData();
-  console.log(`Server is running on http://localhost:${PORT}`);
+  //console.log(`Server is running on http://localhost:${PORT}`);
 });
