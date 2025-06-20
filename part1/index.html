@@ -2,116 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>😵‍💫 DOG? Maybe?</title>
+  <title>Dog of the Day - Unleashed Chaos</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <style>
     body {
+      font-family: Comic Sans MS, cursive, sans-serif;
+      background: linear-gradient(45deg, yellow, hotpink, cyan);
+      background-size: 400% 400%;
+      animation: spinBG 10s linear infinite;
+      overflow-x: hidden;
       margin: 0;
-      font-family: 'Papyrus', 'Comic Sans MS', cursive;
-      background: repeating-linear-gradient(45deg, yellow, red 10px, lime 20px);
-      animation: headache 0.5s infinite alternate;
-      overflow: hidden;
+      padding: 0;
     }
 
-    @keyframes headache {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
+    @keyframes spinBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
-      font-size: 4rem;
-      color: cyan;
-      background-color: black;
       text-align: center;
-      padding: 1rem;
-      animation: bounce 1s infinite alternate;
-    }
-
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(10px); }
+      font-size: 3rem;
+      color: purple;
+      text-shadow: 2px 2px yellow;
+      margin-top: 2rem;
     }
 
     .button {
-      position: absolute;
-      left: calc(100% * var(--randomX));
-      top: calc(100% * var(--randomY));
-      font-size: 0.5rem;
-      padding: 0.2rem;
-      background: magenta;
-      color: black;
-      border: 3px double white;
-      z-index: 999;
-      animation: wiggle 0.2s infinite alternate;
+      display: block;
+      margin: 3rem auto;
+      padding: 2rem 4rem;
+      font-size: 1.5rem;
+      background: repeating-linear-gradient(45deg, lime, lime 10px, orange 10px, orange 20px);
+      border: 5px dashed red;
+      cursor: grab;
+      transform: rotate(-5deg);
+      box-shadow: 5px 5px 20px black;
     }
 
-    @keyframes wiggle {
-      from { transform: rotate(-10deg); }
-      to { transform: rotate(10deg); }
+    .dog-box {
+      text-align: center;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05) rotate(1deg); }
     }
 
     img {
-      display: block;
-      max-width: 300px;
-      border: 15px ridge gold;
-      margin: 5rem auto;
-      filter: invert(100%);
-      animation: shake 0.3s infinite;
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-5px); }
-      100% { transform: translateX(5px); }
+      max-width: 90vw;
+      border: 15px groove magenta;
+      margin-top: 1rem;
+      box-shadow: 0 0 20px black;
     }
 
     .dog-details {
-      text-align: center;
-      color: lime;
       font-size: 1.2rem;
-      background: blue;
+      color: navy;
+      background-color: rgba(255, 255, 255, 0.7);
+      margin: 1rem auto;
+      display: inline-block;
       padding: 1rem;
-      margin: 1rem;
-      border: 5px dashed purple;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px gray;
     }
 
-    .warning {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+    .footer {
+      font-size: 0.9rem;
+      color: #333;
       text-align: center;
-      background: red;
-      color: white;
-      font-size: 0.7rem;
-      animation: flash 1s infinite;
-    }
-
-    @keyframes flash {
-      0%, 100% { background: red; }
-      50% { background: black; }
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
   <div id="app">
-    <h1>🐕‍🦺 DANGER DOG DISPENSER 🐕‍🦺</h1>
+    <h1>🐾 DOG OF THE DAY 🐾</h1>
 
-    <button class="button" :style="randomPosition" @click="getDog">
-      Click if you dare
+    <button type="button" class="button" @click="getDog">
+      🔥 SUMMON THE DOG 🔥
     </button>
 
-    <div v-if="dogImage">
-      <img :src="dogImage" alt="Probably a dog">
+    <div v-if="dogImage" class="dog-box">
+      <img :src="dogImage" :alt="'A glorious pupper'" />
       <div class="dog-details">
-        <p><strong>Name:</strong> Captain Barkonaut</p>
-        <p><strong>Breed:</strong> UltraMix 9000™</p>
-        <p><strong>Age:</strong> ∞ years (time is a concept)</p>
-        <p><strong>Special Skill:</strong> Hacking fire hydrants 🕵️‍♂️</p>
+        <p><strong>Name:</strong> Sir Wigglebottom</p>
+        <p><strong>Breed:</strong> Probably part dragon</p>
+        <p><strong>Age:</strong> 3.14159 years</p>
+        <p><strong>Fun Fact:</strong> Once chased his own tail into another dimension 🌀</p>
       </div>
     </div>
 
-    <div class="warning">
-      ⚠️ WARNING: This page may cause dizziness, confusion, and accidental admiration for dogs
+    <div class="footer">
+      <p>Powered by the chaos of the <a href="https://dog.ceo/dog-api/" target="_blank">Dog API</a> 🐕‍🦺</p>
     </div>
   </div>
 
@@ -120,8 +105,7 @@
     createApp({
       data() {
         return {
-          dogImage: null,
-          randomPosition: this.generateRandomPosition()
+          dogImage: null
         };
       },
       methods: {
@@ -130,18 +114,9 @@
             const res = await fetch('https://dog.ceo/api/breeds/image/random');
             const data = await res.json();
             this.dogImage = data.message;
-            this.randomPosition = this.generateRandomPosition(); // move button
           } catch (err) {
-            alert('🚨 THE DOG IS GONE 🚨');
+            console.error('The doggos are on strike today 🐾', err);
           }
-        },
-        generateRandomPosition() {
-          const x = Math.random();
-          const y = Math.random();
-          return {
-            '--randomX': x,
-            '--randomY': y
-          };
         }
       }
     }).mount('#app');
