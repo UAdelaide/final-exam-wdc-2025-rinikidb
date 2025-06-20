@@ -6,10 +6,10 @@ const PORT = 8080;
 
 async function SampleData() {
   try {
-    const conn = await pool.getConnection();
+    const connection = await pool.getConnection();
 
     // users
-    await conn.query(`
+    await connection.query(`
         INSERT IGNORE INTO Users (username, email, password_hash, role)
         VALUES
             ('alice123', 'alice@example.com', 'hashed123', 'owner'),
