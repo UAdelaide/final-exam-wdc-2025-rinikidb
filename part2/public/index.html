@@ -53,15 +53,13 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                email: this.email,
-                password: this.password
+                email: this.username,
+                pass: this.password
               })
             });
 
             if (!res.ok) throw new Error('Login failed');
-            const data = await res.json();
-            const role = data.user.role;
-
+            const role = await res.text();
 
             if (role === 'owner') {
               window.location.href = '/owner/dashboard.html';
