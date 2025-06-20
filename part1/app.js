@@ -4,12 +4,11 @@ const pool = require('./db');
 const app = express();
 const PORT = 8080;
 
-// Insert sample records on startup
 async function insertSampleData() {
   try {
     const conn = await pool.getConnection();
 
-    // Insert users
+    // users
     await conn.query(`
         INSERT IGNORE INTO Users (username, email, password_hash, role)
         VALUES
@@ -20,7 +19,7 @@ async function insertSampleData() {
             ('karisamahroukh', 'karisa@example.com', 'hashed555', 'owner');
     `);
 
-    // Insert dogs
+    // dogs
     await conn.query(`
         INSERT IGNORE INTO Dogs (owner_id, name, size)
         VALUES
@@ -31,7 +30,7 @@ async function insertSampleData() {
             ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Roxy', 'medium');
     `);
 
-    // Insert walk requests
+    // walk requests
     await conn.query(`
         INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES
@@ -49,7 +48,7 @@ async function insertSampleData() {
   }
 }
 
-// Route: /api/dogs
+// /api/dogs
 app.get('/api/dogs', async (req, res) => {
   try {
     const [rows] = await pool.query(`
