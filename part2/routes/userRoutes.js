@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   // console.log("Login attempt:", username, password);
 
-
+  
   try {
     const [rows] = await db.query(`
       SELECT user_id, role FROM Users
