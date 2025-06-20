@@ -53,8 +53,8 @@ async function insertSampleData() {
 app.get('/api/dogs', async (req, res) => {
   try {
     const [rows] = await pool.query(`
-      SELECT dog.name AS dog_name, dog.size, users.username AS owner_username
-      FROM Dogs dogs
+      SELECT Dogs.name AS dog_name, Dogs.size, users.username AS owner_username
+      FROM Dogs
       JOIN Users users ON dogs.owner_id = users.user_id
     `);
     res.json(rows);
