@@ -112,7 +112,7 @@
 
         async function loadWalks() {
           try {
-            const res = await fetch('/api/walks');
+            const res = await fetch('/api/walks/owner-dog');
             // walks.value = await res.json();
             // new code
             const data = await res.json();
