@@ -2,6 +2,31 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
+// GET walk requests created by the logged-in owner
+router.get('/mine', async (req, res) => {
+  if (!req.session.user || req.session.user.role !== 'owner') {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    const ownerId = req.session.user.id;
+
+    const [rows] = await db.query(`
+      SELECT wr.*, d.name AS dog_name, d.size
+      FROM WalkRequests wr
+      JOIN Dogs d ON wr.dog_id = d.dog_id
+      WHERE d.owner_id = ?
+      ORDER BY wr.requested_time DESC
+    `, [ownerId]);
+
+    res.json(rows);
+  } catch (error) {
+    console.error('Error fetching owner’s walk requests:', error);
+    res.status(500).json({ error: 'Failed to fetch walk requests' });
+  }
+});
+
+
 // GET all walk requests (for walkers to view)
 router.get('/', async (req, res) => {
   try {
