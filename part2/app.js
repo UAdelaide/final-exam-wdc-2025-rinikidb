@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // Session setup (before routes)
 app.use(session({
-  secret: 'walk-the-dog-secret', // 🔐 use .env for production
+  secret: 'walk-the-dog-secret', // use .env for production
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false } // Set to true only if using HTTPS
