@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// 
+// to get the dogs specific to the user when creating a walk request
 router.get('/mine', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
