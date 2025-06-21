@@ -68,7 +68,7 @@
 
         // const user = 3;
 
-        // new added code 
+        // new added code for both q15 and q16
         const userId = ref(null);
 
         // new added code for q16
@@ -115,7 +115,7 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
 
-              // changed value (new code)
+              // changed value (new code) 
               body: JSON.stringify({ walker_id: userId.value })
 
             });
