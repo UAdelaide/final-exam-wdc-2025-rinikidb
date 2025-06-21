@@ -69,17 +69,17 @@
         // const user = 3;
 
         // new code
-              async function getCurrentUser() {
-        try {
-          const res = await fetch('/api/users/me', { credentials: 'include' });
-          if (!res.ok) throw new Error('Not logged in');
-          const user = await res.json();
-          userId.value = user.id;
-        } catch (err) {
-          error.value = 'You must be logged in to view this page.';
-          console.error(err);
+        async function getCurrentUser() {
+          try {
+            const res = await fetch('/api/users/me', { credentials: 'include' });
+            if (!res.ok) throw new Error('Not logged in');
+            const user = await res.json();
+            userId.value = user.id;
+          } catch (err) {
+            error.value = 'You must be logged in to view this page.';
+            console.error(err);
+          }
         }
-      }
 
 
 
