@@ -132,6 +132,7 @@
         }
 
         onMounted(() => {
+           await getCurrentUser();
           loadWalkRequests();
         });
 
