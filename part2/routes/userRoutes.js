@@ -66,7 +66,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-// Logout and clear session
+// ✅ Logout and clear session
 router.post('/logout', (req, res) => {
   req.session.destroy(() => {
     res.clearCookie('connect.sid');
