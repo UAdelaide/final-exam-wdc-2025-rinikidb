@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// GET all dogs
+// to get all the dogs in order to display on the homepage.
 router.get('/', async (req, res) => {
   try {
     const [rows] = await db.query(`
