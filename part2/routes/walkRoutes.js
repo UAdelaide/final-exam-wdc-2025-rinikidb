@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
+
+// new code
 // GET walk requests created by the logged-in owner
 router.get('/mine', async (req, res) => {
   if (!req.session.user || req.session.user.role !== 'owner') {
