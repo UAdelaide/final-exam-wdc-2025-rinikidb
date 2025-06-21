@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
     const [rows] = await db.query(`
       SELECT dog_id, name, size, owner_id FROM Dogs
     `);
+    console.log('Fetched dogs:', rows); // 🐛 Debug log
     res.json(rows);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
