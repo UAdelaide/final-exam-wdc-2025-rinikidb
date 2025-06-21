@@ -4,7 +4,7 @@ const db = require('../models/db');
 
 
 // new code
-// GET walk requests created by the logged-in owner
+// GET all walk requests made by the logged-in user
 router.get('/mine', async (req, res) => {
   if (!req.session.user || req.session.user.role !== 'owner') {
     return res.status(401).json({ error: 'Unauthorized' });
