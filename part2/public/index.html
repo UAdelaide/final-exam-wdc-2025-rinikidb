@@ -94,29 +94,10 @@
             this.error = 'Login error';
           }
         }
-      };
+      }
 
       // new code to display the dogs
-      async loadDogs() {
-        try {
-          const res = await fetch('/api/dogs');
-          const dogsData = await res.json();
-
-          const enrichedDogs = await Promise.all(dogsData.map(async (dog) => {
-            const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
-            const imgData = await imgRes.json();
-            return { ...dog, image: imgData.message };
-          }));
-
-          this.dogs = enrichedDogs;
-        } catch (err) {
-          console.error('Failed to load dogs:', err);
-        }
-      }
-    },
-    mounted() {
-      this.loadDogs(); // call this when the page loads
-    }
+      
     }).mount('#app');
   </script>
 
