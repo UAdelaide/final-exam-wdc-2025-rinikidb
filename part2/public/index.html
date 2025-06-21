@@ -102,7 +102,6 @@
           try {
             const res = await fetch('/api/dogs');
             const dogsData = await res.json();
-            console.log('🔍 dogsData:', dogsData); // <--- Add this line
 
             const enrichedDogs = await Promise.all(dogsData.map(async (dog) => {
               const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
