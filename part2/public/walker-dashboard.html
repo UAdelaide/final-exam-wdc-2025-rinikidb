@@ -131,9 +131,10 @@
           }
         }
 
-        onMounted(() => {
+        // modified
+        onMounted(async () => {
           await getCurrentUser();
-          loadWalkRequests();
+          await loadWalkRequests();
         });
 
         return {
