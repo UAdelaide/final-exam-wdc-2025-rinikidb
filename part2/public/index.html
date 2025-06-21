@@ -44,7 +44,6 @@
         <tr v-for="dog in dogs" :key="dog.dog_id">
           <td><img :src="dog.image" alt="dog" style="height: 100px; border-radius: 10px;"></td>
           <td>{{ dog.name }}</td>
-          <td>{{ dog.breed }}</td>
           <td>{{ dog.age }}</td>
           <td>{{ dog.size }}</td>
         </tr>
