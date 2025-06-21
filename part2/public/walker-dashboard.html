@@ -68,6 +68,9 @@
 
         // const user = 3;
 
+        // new added code
+        const userId = ref(null);
+
         // new code
         async function getCurrentUser() {
           try {
@@ -81,11 +84,6 @@
           }
         }
 
-
-
-
-        // new added code
-        const userId = ref(null);
 
         onMounted(async () => {
           try {
