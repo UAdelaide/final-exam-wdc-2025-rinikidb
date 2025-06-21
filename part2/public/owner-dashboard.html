@@ -116,7 +116,7 @@
             // walks.value = await res.json();
             // new code
             const data = await res.json();
-      this.dogs = data;
+            this.dogs = data;
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
