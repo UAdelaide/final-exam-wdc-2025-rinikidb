@@ -26,7 +26,31 @@
 
     <div v-if="error" class="alert alert-danger mt-3">{{ error }}</div>
 
-    <!-- -->
+    <!-- new code to display the dogs -->
+     <hr class="my-5">
+
+    <h2 class="mb-4 text-success">Meet Our Dogs!</h2>
+    <table class="table table-bordered align-middle">
+      <thead class="table-success">
+        <tr>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Breed</th>
+          <th>Age</th>
+          <th>Size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="dog in dogs" :key="dog.dog_id">
+          <td><img :src="dog.image" alt="dog" style="height: 100px; border-radius: 10px;"></td>
+          <td>{{ dog.name }}</td>
+          <td>{{ dog.breed }}</td>
+          <td>{{ dog.age }}</td>
+          <td>{{ dog.size }}</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 
 <!-- modified the script tab accordingly -->
