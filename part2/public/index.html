@@ -112,7 +112,10 @@
             console.error('Failed to load dogs:', err);
           }
         }
-      }
+      },
+      mounted() {
+    this.loadDogs(); // call this when the page loads
+  }
 
 
     }).mount('#app');
