@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
+// GET all dogs
+router.get('/', async (req, res) => {
+  try {
+    const [rows] = await db.query(`SELECT dog_id, name, breed, age, size FROM Dogs`);
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch dogs' });
+  }
+});
+
 router.get('/mine', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
